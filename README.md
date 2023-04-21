@@ -1,1 +1,1 @@
-# Thing that will make my work easy
+# Things that will make my work easy
