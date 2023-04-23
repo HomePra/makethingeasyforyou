@@ -38,23 +38,12 @@ sudo /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kiban
 
 sudo /usr/share/kibana/bin/kibana-verification-code
 
-# enter verification code into Kibana when prompted
+cd /usr/share/elasticsearch/
+bin/elasticsearch-certutil ca --pem
+unzip elastic-stack-ca.zip
+mv ca /
 
-
-
-# 4.Enable HTTPS for Kibana:
-# --------------------------
-
-#/usr/share/elasticsearch/bin/elasticsearch-certutil ca
-#/usr/share/elasticsearch/bin/elasticsearch-certutil cert --ca elastic-stack-ca.p12 --dns kali-purple.kali.purple,elastic.kali.purple,kali-purple --out kibana-server.p12
-#sudo openssl pkcs12 -in /usr/share/elasticsearch/kibana-server.p12 -out /etc/kibana/kibana-server.crt -clcerts -nokeys
-#sudo openssl pkcs12 -in /usr/share/elasticsearch/kibana-server.p12 -out /etc/kibana/kibana-server.key -nocerts -nodes
-#sudo chown root:kibana /etc/kibana/kibana-server.key
-#sudo chown root:kibana /etc/kibana/kibana-server.crt
-#sudo chmod 660 /etc/kibana/kibana-server.key
-#sudo chmod 660 /etc/kibana/kibana-server.crt
-#
-#echo "server.ssl.enabled: true" | sudo tee -a /etc/kibana/kibana.yml
-#echo "server.ssl.certificate: /etc/kibana/kibana-server.crt" | sudo tee -a /etc/kibana/kibana.yml
-#echo "server.ssl.key: /etc/kibana/kibana-server.key" | sudo tee -a /etc/kibana/kibana.yml
-#echo "server.publicBaseUrl: \"https://localhost:5601\"" | sudo tee -a /etc/kibana/kibana.yml
+#go to kibana.yaml and uncomment these
+#server.ssl.enabled: true
+#server.ssl.certificate: /ca/ca.crt
+#server.ssl.key: /ca/ca.key
