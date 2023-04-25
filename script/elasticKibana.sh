@@ -50,3 +50,8 @@ mv ca /
 
 #open kibana and add this for alerts
 #xpack.encryptedSavedObjects.encryptionKey: '01234567890123456789012345678901'
+
+
+#startting fleet or agent on linux and windows
+#sudo service elastic-agent start == linux
+#./elastic-agent start == windows
