@@ -47,3 +47,6 @@ mv ca /
 #server.ssl.enabled: true
 #server.ssl.certificate: /ca/ca.crt
 #server.ssl.key: /ca/ca.key
+
+#open kibana and add this for alerts
+#xpack.encryptedSavedObjects.encryptionKey: '01234567890123456789012345678901'
